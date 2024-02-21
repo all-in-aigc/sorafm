@@ -23,17 +23,17 @@ cd sorafm
 pnpm install
 ```
 
-3. set env values
+3. set environmental values
 
-`vi .env.local`
+put `.env.local` under root dir with values list below
 
-```shell
+```
 POSTGRES_URL=""
 
 WEB_BASE_URI="http://localhost:3000"
 ```
 
-4. local development
+1. local development
 
 ```shell
 pnpm dev --port 3000
