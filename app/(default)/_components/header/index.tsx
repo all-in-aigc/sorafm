@@ -1,4 +1,5 @@
 import { Nav } from "@/types/Nav";
+import Social from "../social";
 
 export default function () {
   const navigations: Nav[] = [];
@@ -32,7 +33,9 @@ export default function () {
             <div className="flex-1"></div>
 
             <div className="flex flex-row items-center lg:flex lg:flex-row lg:space-x-3 lg:space-y-0">
-              <div className="hidden md:block mr-4"></div>
+              <div className=" md:block mr-4 text-white">
+                <Social />
+              </div>
             </div>
             <a href="#" className="absolute right-5 lg:hidden"></a>
           </div>
