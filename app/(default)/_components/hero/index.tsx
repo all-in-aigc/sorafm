@@ -1,4 +1,5 @@
 import Input from "../input";
+import Producthunt from "../producthunt";
 
 export default function () {
   return (
@@ -10,6 +11,8 @@ export default function () {
         <h2 className="mx-auto mt-2 max-w-xl text-center text-xl leading-8 text-gray-300">
           Make AI Video With Sora
         </h2>
+        <Producthunt />
+
         <Input />
         <svg
           viewBox="0 0 1024 1024"

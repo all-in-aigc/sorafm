@@ -47,7 +47,7 @@ export default function () {
   };
 
   return (
-    <div className="mx-auto mt-10 flex max-w-md gap-x-4">
+    <div className="mx-auto mt-6 flex max-w-md gap-x-4">
       <input
         type="text"
         required

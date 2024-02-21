@@ -11,7 +11,7 @@ export default ({ videos }: { videos: Video[] }) => {
             return (
               <div key={idx}>
                 <a href={`/video/${video.uuid}`} target="_self">
-                  <div className="mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-black shadow-lg bg-gray-900 text-white p-8">
+                  <div className="mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-black shadow-lg bg-gray-900 text-white p-4">
                     <video
                       className="video w-full cursor-pointer rounded-md"
                       src={video.video_url}
