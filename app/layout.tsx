@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
@@ -23,8 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Toaster position="top-center" richColors />
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Toaster position="top-center" richColors />
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

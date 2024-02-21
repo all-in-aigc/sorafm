@@ -1,4 +1,4 @@
-import { Nav } from "@/types/Nav";
+import { Nav } from "@/types/nav";
 import Social from "../social";
 
 export default function () {
