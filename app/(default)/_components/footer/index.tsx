@@ -90,14 +90,24 @@ export default function () {
               </a>
             </div>
           </div>
-          <div className="flex flex-col">
-            <div className="mb-4 flex flex-row items-center">
-              <img src="/email.svg" alt="" className="mr-1 inline-block" />
-              <p className="font-inter ml-1">me@idoubi.cc</p>
+          <div className="mt-10 flex flex-col lg:mt-0">
+            <div className="mb-4 flex flex-col items-center">
+              <p className="font-inter font-medium text-black"></p>
+              <p className="font-inter ml-4 text-black">
+                <img
+                  src={
+                    "https://zknown-1251007641.cos.ap-guangzhou.myqcloud.com/images/20240221231807.png"
+                  }
+                  alt="qrcode"
+                  width={"250"}
+                  height={"400"}
+                  className="rounded-md"
+                />
+              </p>
             </div>
           </div>
         </div>
-        <div className="mx-auto my-12 w-full border border-[#E4E4E7] lg:my-20"></div>
+        <div className="mx-auto my-12 w-full border border-gray-800 lg:my-20"></div>
         <div>
           <p className="font-inter lg: text-center text-sm text-gray-500">
             © Copyright 2024.{" "}
