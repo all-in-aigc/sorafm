@@ -7,3 +7,7 @@ Content-Type: application/json
 {
     "description": "spider man fighting with iron man"
 }
+
+### update videos
+POST {{baseUri}}/process/update-videos
+Content-Type: application/json
