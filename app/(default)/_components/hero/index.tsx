@@ -4,16 +4,21 @@ import Producthunt from "../producthunt";
 export default function () {
   return (
     <div className="mx-auto mt-4 max-w-full sm:mt-4 sm:px-0 lg:px-0">
-      <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-12 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
+      <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-12 shadow-2xl sm:rounded-3xl sm:px-24 xl:pt-32">
         <h1 className="mx-auto max-w-4xl text-center text-3xl font-bold tracking-tight text-primary sm:text-6xl">
           Sora AI Video Generator
         </h1>
-        <h2 className="mx-auto mt-2 max-w-xl text-center text-xl leading-8 text-gray-300">
-          Make AI Video With Sora
+        <h2 className="mx-auto mt-6 max-w-xl text-center text-xl leading-8 text-gray-300">
+          Make AI Video With Sora, Unleash Your Creativity
         </h2>
         <Producthunt />
 
         <Input />
+
+        <div className="mx-auto max-w-6xl text-slate-400 text-sm mt-4 text-center">
+          Sora text-to-video API is not available, you will get an random video
+          with your prompt.
+        </div>
         <svg
           viewBox="0 0 1024 1024"
           className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2"

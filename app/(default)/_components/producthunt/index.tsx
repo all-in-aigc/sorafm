@@ -1,6 +1,6 @@
 export default function () {
   return (
-    <div className="max-w-6xl mx-auto text-center flex items-center justify-center mt-4">
+    <div className="max-w-6xl mx-auto text-center flex items-center justify-center mt-6">
       <a
         href="https://www.producthunt.com/posts/sora-ai-video-generator?utm_source=sora.fm&utm_medium=badge&utm_souce=badge-sora&#0045;ai&#0045;video&#0045;generator"
         target="_blank"
