@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: "Sora AI Video Generator is used to make AI Video.",
   keywords:
-    "sora,sora fm,sora ai,openai sora,video ai,ai video,sora video,ai video generator,text to video,sora ai video,sora ai video generator",
+    "sora,sora fm,sora ai,openai sora,video ai,ai video,sora video,ai video generator,text to video,sora ai video,sora ai video generator,sora webui,sora showcase",
 };
 
 export default function RootLayout({

@@ -77,6 +77,13 @@ export default function () {
                 className="font-inter font-light text-gray-500"
               >
                 AI Cover
+              </a>{" "}
+              <a
+                href="https://readknown.cn"
+                target="_blank"
+                className="font-inter font-light text-gray-500"
+              >
+                ReadKnown
               </a>
             </div>
             <div className="mb-5 mr-8 flex max-w-[200px] grow basis-[100px] flex-col space-y-5 lg:mx-10">
