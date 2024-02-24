@@ -16,11 +16,11 @@ export default ({ videos }: { videos: Video[] }) => {
                       className="video w-full cursor-pointer rounded-md"
                       src={video.video_url}
                       poster={video.cover_url}
-                      preload="auto"
+                      preload="metadata"
                       muted
                       loop
                       controls
-                      autoPlay
+                      // autoPlay
                     >
                       Your browser does not support the video tag.
                     </video>

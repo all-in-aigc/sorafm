@@ -14,7 +14,7 @@ Sora AI Video Generator
 
 ## Deploy with Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fhello-world&env=POSTGRES_URL,WEB_BASE_URI&envDescription=POSTGRES_URL%20needed%20for%20the%20application&project-name=my-sora-project&repository-name=my-sora-project&redirect-url=https%3A%2F%2Fsora.fm&demo-title=Sora.FM&demo-description=Sora%20AI%20Video%20Generator&demo-url=https%3A%2F%2Fsora.fm&demo-image=https%3A%2F%2Fgithub.com%2Fall-in-aigc%2Fsorafm%2Fraw%2Fmain%2Fpreview.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fall-in-aigc%2Fsorafm&env=POSTGRES_URL,WEB_BASE_URI&envDescription=POSTGRES_URL%20needed%20for%20the%20application&project-name=my-sora-project&repository-name=my-sora-project&redirect-url=https%3A%2F%2Fsora.fm&demo-title=Sora.FM&demo-description=Sora%20AI%20Video%20generator&demo-url=https%3A%2F%2Fsora.fm&demo-image=https%3A%2F%2Fgithub.com%2Fall-in-aigc%2Fsorafm%2Fraw%2Fmain%2Fpreview.png)
 
 ## Quick Start
 
