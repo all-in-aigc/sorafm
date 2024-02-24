@@ -10,7 +10,7 @@ Sora AI Video Showcases
 
 [https://sora.fm](https://sora.fm)
 
-![preview](./preview.png?ts=1708784741)
+![preview](./screenshots.png)
 
 ## Deploy with Vercel
 

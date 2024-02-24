@@ -8,7 +8,7 @@ Sora AI 视频展示站
 
 [https://sora.fm](https://sora.fm)
 
-![preview](./preview.png)
+![preview](./screenshots.png)
 
 ## 使用 Vercel 一键部署
 
