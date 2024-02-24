@@ -18,8 +18,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `AI Video Showcase`,
-    description: `${description} Made with Sora AI Video Generator | Sora.FM`,
+    description: `${description} Sora AI Video Showcases | Sora.FM`,
     alternates: {
       canonical: `${process.env.WEB_BASE_URI}/video/${params.uuid}`,
     },
@@ -37,7 +36,7 @@ export default async function ({ params }: { params: { uuid: string } }) {
           Sora AI Video Showcase
         </h1>
         <h2 className="mx-auto mt-2 max-w-xl text-center text-xl leading-8 text-gray-300">
-          Made With Sora AI Video Generator
+          AI Video made with Sora.
         </h2>
 
         {video && (

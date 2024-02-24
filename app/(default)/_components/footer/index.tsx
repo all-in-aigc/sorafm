@@ -10,7 +10,7 @@ export default function () {
               Sora.FM
             </a>
             <p className="font-inter mt-4 max-w-[350px] text-base font-light text-gray-500">
-              Sora AI Video Generator
+              Sora AI Video Showcases
             </p>
             <div className="mb-8 mt-6 flex flex-row">
               <Social />
@@ -27,7 +27,7 @@ export default function () {
                 What's Sora
               </a>
               <a
-                href="https://platform.openai.com/docs/overview"
+                href="https://platform.openai.com/docs/api-reference"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
