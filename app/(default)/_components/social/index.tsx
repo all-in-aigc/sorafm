@@ -34,13 +34,6 @@ export default function () {
       >
         <SiBuymeacoffee className="text-lg" />
       </a>
-      <a
-        href="https://mp.weixin.qq.com/s/4duIpeZkmqlKPa4jrcUdIA"
-        target="_blank"
-        className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
-      >
-        <BsBook className="text-lg" />
-      </a>
     </div>
   );
 }
