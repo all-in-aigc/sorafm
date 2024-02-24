@@ -7,9 +7,9 @@ export async function insertVideo(video: Video) {
   const db = getDb();
   const res = await db.query(
     `INSERT INTO videos 
-        (user_uuid, video_description, video_url, cover_url, post_url, user_nickname, user_avatar_url, created_at, uuid) 
+        (user_uuid, video_description, video_url, cover_url, post_url, user_nickname, user_avatar_url, created_at, uuid, status) 
         VALUES 
-        ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
     `,
     [
       video.user_uuid,
@@ -21,6 +21,7 @@ export async function insertVideo(video: Video) {
       video.user_avatar_url,
       video.created_at,
       video.uuid,
+      video.status,
     ]
   );
 
@@ -61,7 +62,7 @@ export async function findVideoByUuid(
 ): Promise<Video | undefined> {
   const db = getDb();
   const res = await db.query(
-    `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.uuid = $1`,
+    `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.uuid = $1 and w.status = 1`,
     [uuid]
   );
   if (res.rowCount === 0) {
@@ -87,7 +88,7 @@ export async function getRandVideos(
 
   const db = getDb();
   const res = await db.query(
-    `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR order by random() limit $1 offset $2`,
+    `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.status = 1 order by random() limit $1 offset $2`,
     [limit, offset]
   );
 
@@ -111,7 +112,7 @@ export async function getVideos(page: number, limit: number): Promise<Video[]> {
 
   const db = getDb();
   const res = await db.query(
-    `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR order by w.created_at desc limit $1 offset $2`,
+    `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.status = 1 order by w.created_at desc limit $1 offset $2`,
     [limit, offset]
   );
   if (res.rowCount === 0) {
@@ -153,6 +154,7 @@ export function formatVideo(row: QueryResultRow): Video | undefined {
     user_avatar_url: row.user_avatar_url,
     created_at: row.created_at,
     uuid: row.uuid,
+    status: row.status,
   };
 
   return video;

@@ -8,4 +8,5 @@ export interface Video {
   user_avatar_url?: string;
   created_at: string;
   uuid: string;
+  status?: number;
 }
