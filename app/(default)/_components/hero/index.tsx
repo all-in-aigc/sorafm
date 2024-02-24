@@ -12,10 +12,13 @@ export default function () {
           Discover awesome AI Videos made with Sora.
         </h2>
 
+        <Input />
+
         <div className="mx-auto max-w-6xl text-slate-400 text-sm mt-4 text-center">
-          Sora text-to-video API is not available, all the videos are generated
-          by OpenAI's red team.
+          Sora text-to-video API is not available, we'll get you notified when
+          it's live.
         </div>
+
         <svg
           viewBox="0 0 1024 1024"
           className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2"

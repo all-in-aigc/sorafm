@@ -35,9 +35,9 @@ export default async function ({ params }: { params: { uuid: string } }) {
         <h1 className="mx-auto max-w-4xl text-center text-3xl font-bold tracking-tight text-primary sm:text-6xl">
           Sora AI Video Showcase
         </h1>
-        <h2 className="mx-auto mt-2 max-w-xl text-center text-xl leading-8 text-gray-300">
-          AI Video made with Sora.
-        </h2>
+        <p className="mx-auto mt-2 px-4 max-w-xl text-center text-xl leading-8 text-gray-300">
+          This video is made with Sora, by OpenAI's red team.
+        </p>
 
         {video && (
           <div className="relative z-10 mt-8 bg-gray-900 pb-20 sm:mt-16 sm:pb-24 xl:pb-0">

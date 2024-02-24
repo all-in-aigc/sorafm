@@ -7,19 +7,19 @@ import { useRouter } from "next/navigation";
 
 export default function () {
   const router = useRouter();
-  const [description, setDescription] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = async () => {
-    if (!description) {
-      toast.error("please descibe your story");
+    if (!email) {
+      toast.error("please enter your email");
       return;
     }
 
     try {
       const params = {
-        description: description,
+        email: email,
       };
-      const resp = await fetch("/api/gen-video", {
+      const resp = await fetch("/api/save-user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,13 +27,17 @@ export default function () {
         body: JSON.stringify(params),
       });
       const { code, message, data } = await resp.json();
+      if (code !== 0) {
+        toast.error(message);
+        return;
+      }
       if (data) {
-        toast.success("We generated an random video for your story.");
-        router.push(`/video/${data.uuid}`);
+        toast.success("subscribe ok");
+        setEmail("");
       }
     } catch (e) {
-      toast.error("gen video failed");
-      console.log("gen video failed", e);
+      toast.error("subscribe failed");
+      console.log("subscribe failed", e);
     }
   };
 
@@ -49,12 +53,12 @@ export default function () {
   return (
     <div className="mx-auto mt-6 flex max-w-md gap-x-4">
       <input
-        type="text"
+        type="email"
         required
         className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-        placeholder="Describe your story"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         onKeyDown={handleInputKeydown}
       />
       <button
@@ -62,7 +66,7 @@ export default function () {
         className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         onClick={handleSubmit}
       >
-        Surprise me
+        Subscribe
       </button>
     </div>
   );
