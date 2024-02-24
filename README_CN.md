@@ -62,10 +62,10 @@ pnpm dev --port 3000
 
 ## 其他
 
-你可以在 Twitter 上关注我: https://twitter.com/idoubicc
+> 如果你想学习全栈开发，实现类似的产品，你可以参加我的 [全栈开发课程](https://mp.weixin.qq.com/s/4duIpeZkmqlKPa4jrcUdIA)
+
+你可以在 Twitter 上联系我: https://twitter.com/idoubicc
 
 或者关注我的微信公众号 👇
 
-![艾逗笔](https://zknown-1251007641.cos.ap-guangzhou.myqcloud.com/images/20240130090120.png)
-
-> 如果你想学习全栈开发，实现类似的产品，你可以参加我的 [全栈开发课程](https://mp.weixin.qq.com/s/4duIpeZkmqlKPa4jrcUdIA)
+<img src="https://zknown-1251007641.cos.ap-guangzhou.myqcloud.com/images/20240130090120.png" width="300" height="320" />

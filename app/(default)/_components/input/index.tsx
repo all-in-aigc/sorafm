@@ -28,7 +28,7 @@ export default function () {
       });
       const { code, message, data } = await resp.json();
       if (data) {
-        toast.success("gen video ok");
+        toast.success("We generated an random video for your story.");
         router.push(`/video/${data.uuid}`);
       }
     } catch (e) {
