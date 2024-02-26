@@ -74,7 +74,7 @@ export async function findVideoByUuid(
   return video;
 }
 
-export async function getRandVideos(
+export async function getRandomVideos(
   page: number,
   limit: number
 ): Promise<Video[]> {
@@ -101,7 +101,10 @@ export async function getRandVideos(
   return videos;
 }
 
-export async function getVideos(page: number, limit: number): Promise<Video[]> {
+export async function getLatestVideos(
+  page: number,
+  limit: number
+): Promise<Video[]> {
   if (page < 1) {
     page = 1;
   }
@@ -113,6 +116,32 @@ export async function getVideos(page: number, limit: number): Promise<Video[]> {
   const db = getDb();
   const res = await db.query(
     `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.status = 1 order by w.created_at desc limit $1 offset $2`,
+    [limit, offset]
+  );
+  if (res.rowCount === 0) {
+    return [];
+  }
+
+  const videos = getVideosFromSqlResult(res);
+
+  return videos;
+}
+
+export async function getRecommendedVideos(
+  page: number,
+  limit: number
+): Promise<Video[]> {
+  if (page < 1) {
+    page = 1;
+  }
+  if (limit <= 0) {
+    limit = 50;
+  }
+  const offset = (page - 1) * limit;
+
+  const db = getDb();
+  const res = await db.query(
+    `select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where is_recommended = true and w.status = 1 order by w.created_at desc limit $1 offset $2`,
     [limit, offset]
   );
   if (res.rowCount === 0) {

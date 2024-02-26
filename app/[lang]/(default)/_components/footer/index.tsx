@@ -20,35 +20,35 @@ export default function ({ lang, dict }: { lang: string; dict: any }) {
             <div className="mb-5 mr-8 flex max-w-[200px] grow basis-[100px] flex-col space-y-5 lg:mx-10">
               <div className="font-inter font-medium">INTRODUCTION</div>
               <a
-                href="https://openai.com/sora"
+                href="https://openai.com/sora?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 What's Sora
               </a>
               <a
-                href="https://openai.com/research/video-generation-models-as-world-simulators"
+                href="https://openai.com/research/video-generation-models-as-world-simulators?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 Sora technical report
               </a>
               <a
-                href="https://platform.openai.com/docs/api-reference"
+                href="https://platform.openai.com/docs/api-reference?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 Sora API
               </a>
               <a
-                href="https://www.tiktok.com/@openai"
+                href="https://www.tiktok.com/@openai?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 Sora Showcases
               </a>
               <a
-                href="https://platform.openai.com/docs/guides/prompt-engineering"
+                href="https://platform.openai.com/docs/guides/prompt-engineering?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
@@ -58,35 +58,35 @@ export default function ({ lang, dict }: { lang: string; dict: any }) {
             <div className="mb-5 mr-8 flex max-w-[200px] grow basis-[100px] flex-col space-y-5 lg:mx-10">
               <div className="font-inter font-medium">FRIENDS</div>
               <a
-                href="https://gpts.works"
+                href="https://gpts.works?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 GPTs Works
               </a>
               <a
-                href="https://gptalk.one"
+                href="https://gptalk.one?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 GPTalk
               </a>
               <a
-                href="https://aiwallpaper.shop"
+                href="https://aiwallpaper.shop?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 AI Wallpaper
               </a>
               <a
-                href="https://aicover.design"
+                href="https://aicover.design?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
                 AI Cover
-              </a>{" "}
+              </a>
               <a
-                href="https://readknown.cn"
+                href="https://readknown.cn?utm_source=sora.fm"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
               >
@@ -101,6 +101,27 @@ export default function ({ lang, dict }: { lang: string; dict: any }) {
                 className="font-inter font-light text-gray-500"
               >
                 Sora.FM
+              </a>
+              <a
+                href="https://www.stablevideo.com?utm_source=sora.fm"
+                target="_blank"
+                className="font-inter font-light text-gray-500"
+              >
+                Stable Video
+              </a>
+              <a
+                href="https://pika.art?utm_source=sora.fm"
+                target="_blank"
+                className="font-inter font-light text-gray-500"
+              >
+                Pika
+              </a>
+              <a
+                href="https://runwayml.com/ai-tools/gen-2?utm_source=sora.fm"
+                target="_blank"
+                className="font-inter font-light text-gray-500"
+              >
+                Gen-2
               </a>
             </div>
             {lang.startsWith("zh") && (

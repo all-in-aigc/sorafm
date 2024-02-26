@@ -3,23 +3,7 @@ import { Nav } from "@/types/nav";
 import Social from "../social";
 
 export default function ({ lang, dict }: { lang: string; dict: any }) {
-  const navigations: Nav[] = [
-    {
-      title: "Pika",
-      url: "https://pika.art/",
-      target: "_blank",
-    },
-    {
-      title: "Gen-2",
-      url: "https://runwayml.com/ai-tools/gen-2/",
-      target: "_blank",
-    },
-    {
-      title: "Stable Video",
-      url: "https://www.stablevideo.com/",
-      target: "_blank",
-    },
-  ];
+  const navigations: Nav[] = [];
 
   return (
     <header>

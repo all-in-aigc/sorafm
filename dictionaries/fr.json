@@ -13,5 +13,10 @@
     "title": "Vitrine vidéo Sora AI",
     "sub_title": "Cette vidéo a été réalisée avec Sora, par l'équipe rouge d'OpenAI.",
     "more_tip": "Plus de vitrines vidéo AI"
+  },
+  "tab": {
+    "latest": "Dernier",
+    "featured": "En vedette",
+    "random": "Aléatoire"
   }
 }

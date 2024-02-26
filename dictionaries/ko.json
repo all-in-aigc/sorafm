@@ -13,5 +13,10 @@
     "title": "Sora AI 비디오 쇼케이스",
     "sub_title": "T이 비디오는 OpenAI의 레드 팀이 Sora를 사용하여 만들었습니다.",
     "more_tip": "더 많은 AI 비디오 쇼케이스"
+  },
+  "tab": {
+    "latest": "최신",
+    "featured": "특집",
+    "random": "무작위"
   }
 }

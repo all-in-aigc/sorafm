@@ -1,4 +1,4 @@
-import { findVideoByUuid, getRandVideos } from "@/models/video";
+import { findVideoByUuid, getRandomVideos } from "@/models/video";
 
 import { Metadata } from "next";
 import Videos from "../../_components/videos";
@@ -35,7 +35,7 @@ export default async function ({
 }) {
   const dict = await getDictionary(params.lang);
   const video = await findVideoByUuid(params.uuid);
-  const videos = await getRandVideos(1, 50);
+  const videos = await getRandomVideos(1, 50);
 
   return (
     <div className="mx-auto mt-4 max-w-full sm:mt-4 sm:px-0 lg:px-0">

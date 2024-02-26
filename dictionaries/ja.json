@@ -13,5 +13,10 @@
     "title": "Sora AI ビデオショーケース",
     "sub_title": "このビデオはOpenAIのレッドチームによってSoraを使って作成されました。",
     "more_tip": "さらにAIビデオショーケース"
+  },
+  "tab": {
+    "latest": "最新",
+    "featured": "注目",
+    "random": "ランダム"
   }
 }

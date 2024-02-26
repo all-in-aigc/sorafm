@@ -13,5 +13,10 @@
     "title": "Sora AI Video Showcase",
     "sub_title": "Dieses Video wurde mit dem Sora Text-zu-Video Modell erstellt",
     "more_tip": "Mehr AI Video Showcases"
+  },
+  "tab": {
+    "latest": "Neueste",
+    "featured": "Empfohlen",
+    "random": "Zufällig"
   }
 }

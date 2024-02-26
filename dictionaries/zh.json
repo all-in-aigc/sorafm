@@ -13,5 +13,10 @@
     "title": "Sora AI 视频演示",
     "sub_title": "这个视频由 Sora 生成",
     "more_tip": "更多由 Sora 生成的视频"
+  },
+  "tab": {
+    "latest": "最新",
+    "featured": "最热",
+    "random": "随机"
   }
 }

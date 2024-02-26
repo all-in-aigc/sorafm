@@ -18,5 +18,6 @@ CREATE TABLE videos (
     user_avatar_url VARCHAR(255),
     created_at timestamptz,
     uuid UUID UNIQUE NOT NULL,
-    status INT
+    status INT,
+    is_recommended BOOLEAN
 );
