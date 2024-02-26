@@ -3,7 +3,23 @@ import { Nav } from "@/types/nav";
 import Social from "../social";
 
 export default function ({ lang, dict }: { lang: string; dict: any }) {
-  const navigations: Nav[] = [];
+  const navigations: Nav[] = [
+    {
+      title: "Pika",
+      url: "https://pika.art/",
+      target: "_blank",
+    },
+    {
+      title: "Gen-2",
+      url: "https://runwayml.com/ai-tools/gen-2/",
+      target: "_blank",
+    },
+    {
+      title: "Stable Video",
+      url: "https://www.stablevideo.com/",
+      target: "_blank",
+    },
+  ];
 
   return (
     <header>
@@ -24,7 +40,8 @@ export default function ({ lang, dict }: { lang: string; dict: any }) {
                 <a
                   key={idx}
                   href={tab.url}
-                  className="text-md font-medium leading-6 text-gray-900"
+                  target={tab.target || "_self"}
+                  className="text-md font-medium leading-6 text-slate-300 mr-6"
                 >
                   {tab.title}
                 </a>

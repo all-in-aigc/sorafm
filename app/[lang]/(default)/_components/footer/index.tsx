@@ -27,6 +27,13 @@ export default function ({ lang, dict }: { lang: string; dict: any }) {
                 What's Sora
               </a>
               <a
+                href="https://openai.com/research/video-generation-models-as-world-simulators"
+                target="_blank"
+                className="font-inter font-light text-gray-500"
+              >
+                Sora technical report
+              </a>
+              <a
                 href="https://platform.openai.com/docs/api-reference"
                 target="_blank"
                 className="font-inter font-light text-gray-500"
@@ -77,6 +84,13 @@ export default function ({ lang, dict }: { lang: string; dict: any }) {
                 className="font-inter font-light text-gray-500"
               >
                 AI Cover
+              </a>{" "}
+              <a
+                href="https://readknown.cn"
+                target="_blank"
+                className="font-inter font-light text-gray-500"
+              >
+                ReadKnown
               </a>
             </div>
             <div className="mb-5 mr-8 flex max-w-[200px] grow basis-[100px] flex-col space-y-5 lg:mx-10">
