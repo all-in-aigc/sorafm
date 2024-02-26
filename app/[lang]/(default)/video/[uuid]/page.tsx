@@ -2,12 +2,15 @@ import { findVideoByUuid, getRandVideos } from "@/models/video";
 
 import { Metadata } from "next";
 import Videos from "../../_components/videos";
+import { getDictionary } from "@/services/i18n";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { uuid: string };
+  params: { lang: string; uuid: string };
 }): Promise<Metadata> {
+  const dict = await getDictionary(params.lang);
+
   let description = "";
 
   if (params.uuid) {
@@ -18,14 +21,19 @@ export async function generateMetadata({
   }
 
   return {
-    description: `${description} Sora AI Video Showcases | Sora.FM`,
+    description: `${description} ${dict.brand.title} | Sora.FM`,
     alternates: {
-      canonical: `${process.env.WEB_BASE_URI}/video/${params.uuid}`,
+      canonical: `${process.env.WEB_BASE_URI}/${params.lang}/video/${params.uuid}`,
     },
   };
 }
 
-export default async function ({ params }: { params: { uuid: string } }) {
+export default async function ({
+  params,
+}: {
+  params: { lang: string; uuid: string };
+}) {
+  const dict = await getDictionary(params.lang);
   const video = await findVideoByUuid(params.uuid);
   const videos = await getRandVideos(1, 50);
 
@@ -33,10 +41,10 @@ export default async function ({ params }: { params: { uuid: string } }) {
     <div className="mx-auto mt-4 max-w-full sm:mt-4 sm:px-0 lg:px-0">
       <div className="relative isolate overflow-hidden bg-gray-900 px-2 py-12 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
         <h1 className="mx-auto max-w-4xl text-center text-3xl font-bold tracking-tight text-primary sm:text-6xl">
-          Sora AI Video Showcase
+          {dict.showcase.title}
         </h1>
         <p className="mx-auto mt-2 px-4 max-w-xl text-center text-xl leading-8 text-gray-300">
-          This video is made with Sora, by OpenAI's red team.
+          {dict.showcase.sub_title}
         </p>
 
         {video && (
@@ -108,10 +116,10 @@ export default async function ({ params }: { params: { uuid: string } }) {
 
       <div className="relative isolate overflow-hidden bg-gray-900 px-2 py-4 shadow-2xl sm:rounded-3xl sm:px-12 xl:py-12">
         <h2 className="mx-auto mt-2 max-w-xl text-center text-xl leading-8 text-gray-300">
-          More AI Video Showcases
+          {dict.showcase.more_tip}
         </h2>
 
-        <Videos videos={videos} />
+        <Videos lang={params.lang} videos={videos} />
       </div>
     </div>
   );

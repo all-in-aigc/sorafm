@@ -1,0 +1,17 @@
+{
+  "brand": {
+    "name": "Sorm.FM",
+    "title": "Sora AI ビデオジェネレーター",
+    "sub_title": "Soraを使用してAIビデオを生成する"
+  },
+  "subscribe": {
+    "placeholder": "メールアドレスを入力してください",
+    "button": "通知を購読する",
+    "tip": "SoraテキストからビデオへのAPIは利用できませんが、公開され次第お知らせします。"
+  },
+  "showcase": {
+    "title": "Sora AI ビデオショーケース",
+    "sub_title": "このビデオはOpenAIのレッドチームによってSoraを使って作成されました。",
+    "more_tip": "さらにAIビデオショーケース"
+  }
+}

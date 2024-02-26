@@ -1,0 +1,17 @@
+{
+  "brand": {
+    "name": "Sorm.FM",
+    "title": "Sora AI 비디오 생성기",
+    "sub_title": "Sora 를 사용하여 AI 비디오를 제작하다"
+  },
+  "subscribe": {
+    "placeholder": "이메일을 입력하세요",
+    "button": "알림 구독하기",
+    "tip": "Sora 텍스트에서 비디오로의 API는 사용할 수 없습니다. 서비스가 시작되면 알려드리겠습니다."
+  },
+  "showcase": {
+    "title": "Sora AI 비디오 쇼케이스",
+    "sub_title": "T이 비디오는 OpenAI의 레드 팀이 Sora를 사용하여 만들었습니다.",
+    "more_tip": "더 많은 AI 비디오 쇼케이스"
+  }
+}

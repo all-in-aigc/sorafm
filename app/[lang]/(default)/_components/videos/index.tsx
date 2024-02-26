@@ -1,8 +1,6 @@
-"use client";
-
 import { Video } from "@/types/video";
 
-export default ({ videos }: { videos: Video[] }) => {
+export default ({ lang, videos }: { lang: string; videos: Video[] }) => {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-5 py-4 md:px-10 md:py-4 lg:py-4">
@@ -10,7 +8,7 @@ export default ({ videos }: { videos: Video[] }) => {
           {videos.map((video: Video, idx: number) => {
             return (
               <div key={idx}>
-                <a href={`/video/${video.uuid}`} target="_self">
+                <a href={`/${lang}/video/${video.uuid}`} target="_self">
                   <div className="mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-black shadow-lg bg-gray-900 text-white p-4">
                     <video
                       className="video w-full cursor-pointer rounded-md"

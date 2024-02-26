@@ -1,0 +1,17 @@
+{
+  "brand": {
+    "name": "Sorm.FM",
+    "title": "Générateur de vidéos Sora AI",
+    "sub_title": "Créez des vidéos AI avec Sora"
+  },
+  "subscribe": {
+    "placeholder": "Entrez votre email",
+    "button": "S'abonner",
+    "tip": "L'API de texte en vidéo Sora n'est pas disponible, nous vous informerons lorsqu'elle sera en ligne."
+  },
+  "showcase": {
+    "title": "Vitrine vidéo Sora AI",
+    "sub_title": "Cette vidéo a été réalisée avec Sora, par l'équipe rouge d'OpenAI.",
+    "more_tip": "Plus de vitrines vidéo AI"
+  }
+}

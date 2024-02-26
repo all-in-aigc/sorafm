@@ -1,0 +1,17 @@
+{
+  "brand": {
+    "name": "Sorm.FM",
+    "title": "Sora AI Video Showcases",
+    "sub_title": "Discover awesome AI Videos made with Sora."
+  },
+  "subscribe": {
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "tip": "Sora text-to-video API is not available, we'll get you notified when it's live."
+  },
+  "showcase": {
+    "title": "Sora AI Video Showcase",
+    "sub_title": "This video is made with Sora, by OpenAI's red team.",
+    "more_tip": "More AI Video Showcases"
+  }
+}

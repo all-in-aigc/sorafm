@@ -1,22 +1,21 @@
 import Input from "../input";
 import Producthunt from "../producthunt";
 
-export default function () {
+export default function ({ dict }: { dict: any }) {
   return (
     <div className="mx-auto mt-4 max-w-full sm:mt-4 sm:px-0 lg:px-0">
       <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-12 shadow-2xl sm:rounded-3xl sm:px-24 xl:pt-32">
         <h1 className="mx-auto max-w-4xl text-center text-3xl font-bold tracking-tight text-primary sm:text-6xl">
-          Sora AI Video Showcases
+          {dict.brand.title}
         </h1>
         <h2 className="mx-auto mt-6 max-w-xl text-center text-xl leading-8 text-gray-300">
-          Discover awesome AI Videos made with Sora.
+          {dict.brand.sub_title}
         </h2>
 
-        <Input />
+        <Input dict={dict} />
 
         <div className="mx-auto max-w-6xl text-slate-400 text-sm mt-4 text-center">
-          Sora text-to-video API is not available, we'll get you notified when
-          it's live.
+          {dict.subscribe.tip}
         </div>
 
         <svg

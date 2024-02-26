@@ -1,6 +1,6 @@
 import Social from "../social";
 
-export default function () {
+export default function ({ dict }: { dict: any }) {
   return (
     <section>
       <div className="w-screen flex-col bg-black px-6 py-20 text-white lg:flex lg:px-10 xl:px-24">
@@ -10,7 +10,7 @@ export default function () {
               Sora.FM
             </a>
             <p className="font-inter mt-4 max-w-[350px] text-base font-light text-gray-500">
-              Sora AI Video Showcases
+              {dict.brand.title}
             </p>
             <div className="mb-8 mt-6 flex flex-row">
               <Social />
