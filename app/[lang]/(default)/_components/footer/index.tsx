@@ -1,6 +1,6 @@
 import Social from "../social";
 
-export default function ({ dict }: { dict: any }) {
+export default function ({ lang, dict }: { lang: string; dict: any }) {
   return (
     <section>
       <div className="w-screen flex-col bg-black px-6 py-20 text-white lg:flex lg:px-10 xl:px-24">
@@ -89,6 +89,24 @@ export default function ({ dict }: { dict: any }) {
                 Sora.FM
               </a>
             </div>
+            {lang.startsWith("zh") && (
+              <div className="mt-10 flex flex-col lg:mt-0">
+                <div className="mb-4 flex flex-col items-center">
+                  <p className="font-inter font-medium text-black"></p>
+                  <p className="font-inter ml-4 text-black">
+                    <img
+                      src={
+                        "https://zknown-1251007641.cos.ap-guangzhou.myqcloud.com/images/20240226193536.png"
+                      }
+                      alt="qrcode"
+                      width={"250"}
+                      height={"400"}
+                      className="rounded-md"
+                    />
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="mx-auto my-12 w-full border border-gray-800 lg:my-20"></div>

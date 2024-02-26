@@ -1,6 +1,6 @@
 # Sora.FM
 
-Sora AI 视频展示站
+Sora AI 视频生成器
 
 > Sora 文本生成视频 API 还未发布，网站上展示的所有视频都是由 OpenAI 官方生成的。
 
@@ -8,7 +8,7 @@ Sora AI 视频展示站
 
 [https://sora.fm](https://sora.fm)
 
-![preview](./screenshots.png)
+![preview](./preview_cn.png)
 
 ## 使用 Vercel 一键部署
 

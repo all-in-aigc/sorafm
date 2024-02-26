@@ -1,0 +1,17 @@
+{
+  "brand": {
+    "name": "Sorm.FM",
+    "title": "Sora AI Video Generator",
+    "sub_title": "Erstelle AI Videos mit Sora, entfessele deine Kreativität."
+  },
+  "subscribe": {
+    "placeholder": "Gib deine E-Mail-Adresse ein",
+    "button": "Abonnieren",
+    "tip": "Die Sora Text-zu-Video API ist derzeit nicht verfügbar, wir werden dich informieren, sobald sie live geht."
+  },
+  "showcase": {
+    "title": "Sora AI Video Showcase",
+    "sub_title": "Dieses Video wurde mit dem Sora Text-zu-Video Modell erstellt",
+    "more_tip": "Mehr AI Video Showcases"
+  }
+}

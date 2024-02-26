@@ -16,7 +16,7 @@ export default async function ({
     <div className="bg-gray-900">
       <Header lang={params.lang} dict={dict} />
       <main>{children}</main>
-      <Footer dict={dict} />
+      <Footer lang={params.lang} dict={dict} />
     </div>
   );
 }

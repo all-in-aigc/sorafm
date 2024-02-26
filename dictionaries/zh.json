@@ -1,8 +1,8 @@
 {
   "brand": {
     "name": "Sorm.FM",
-    "title": "Sora AI 视频演示",
-    "sub_title": "发现由 Sora 生成的精选视频"
+    "title": "Sora AI 视频生成器",
+    "sub_title": "使用 Sora 生成 AI 视频，释放你的创造力"
   },
   "subscribe": {
     "placeholder": "输入你的邮箱",
@@ -11,7 +11,7 @@
   },
   "showcase": {
     "title": "Sora AI 视频演示",
-    "sub_title": "这个视频由 OpenAI 测试团队通过 Sora 生成",
+    "sub_title": "这个视频由 Sora 生成",
     "more_tip": "更多由 Sora 生成的视频"
   }
 }
