@@ -1,6 +1,6 @@
 import { respData, respErr } from "@/lib/resp";
 
-import { getRandVideos } from "@/models/video";
+import { getRandomVideos } from "@/models/video";
 
 export async function POST(req: Request) {
   try {
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
     // todo: call openai sora api to generate video
 
-    const videos = await getRandVideos(1, 1);
+    const videos = await getRandomVideos(1, 1);
     if (videos.length === 0) {
       return respErr("gen video failed");
     }
