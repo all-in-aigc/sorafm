@@ -1,13 +1,10 @@
-import { neon } from "@neondatabase/serverless";
+import { createClient } from "@supabase/supabase-js";
 
-export function getNeonSql() {
-  const connectionString = process.env.POSTGRES_URL
-    ? process.env.POSTGRES_URL + "?sslmode=require"
-    : "";
+export function getSupabaseClient() {
+  const client = createClient(
+    process.env.SUPABASE_URL || "",
+    process.env.SUPABASE_ANON_KEY || ""
+  );
 
-  console.log("db connectionString: ", connectionString);
-
-  const sql = neon(connectionString);
-
-  return sql;
+  return client;
 }

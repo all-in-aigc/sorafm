@@ -1,51 +1,78 @@
 import { User } from "@/types/user";
-import { getNeonSql } from "@/models/db";
+import { getSupabaseClient } from "@/models/db";
 
 export async function insertUser(user: User) {
   const createdAt: string = new Date().toISOString();
 
-  const sql = await getNeonSql();
+  const cli = getSupabaseClient();
 
-  const res = await sql`INSERT INTO users 
-      (email, nickname, avatar_url, created_at, uuid) 
-      VALUES 
-      (${user.email}, ${user.nickname}, ${user.avatar_url}, ${createdAt}, ${user.uuid})
-  `;
+  const { data, error } = await cli
+    .from("users")
+    .insert({
+      email: user.email,
+      nickname: user.nickname,
+      avatar_url: user.avatar_url,
+      created_at: createdAt,
+      uuid: user.uuid,
+    })
+    .select();
 
-  return res;
+  if (error) {
+    throw error;
+  }
+
+  return data[0];
 }
 
 export async function findUserByEmail(
   email: string
 ): Promise<User | undefined> {
-  const sql = getNeonSql();
-  const res = await sql`SELECT * FROM users WHERE email = ${email} LIMIT 1`;
+  const cli = getSupabaseClient();
 
-  if (res.length === 0) {
+  const { data, error } = await cli
+    .from("users")
+    .select("email, nickname, avatar_url, created_at, uuid")
+    .eq("email", email)
+    .single();
+
+  if (error) {
+    if (error.code === "PGRST116") {
+      return undefined;
+    }
+
+    throw error;
+  }
+
+  if (!data) {
     return undefined;
   }
 
-  const row = res[0];
-  const user: User = {
-    email: row.email,
-    nickname: row.nickname,
-    avatar_url: row.avatar_url,
-    created_at: row.created_at,
-    uuid: row.uuid,
-  };
-
-  return user;
+  return formatUser(data);
 }
 
 export async function findUserByUuid(uuid: string): Promise<User | undefined> {
-  const sql = getNeonSql();
-  const res = await sql`SELECT * FROM users WHERE uuid = ${uuid} LIMIT 1`;
+  const cli = getSupabaseClient();
 
-  if (res.length === 0) {
-    return undefined;
+  const { data, error } = await cli
+    .from("users")
+    .select("email, nickname, avatar_url, created_at, uuid")
+    .eq("uuid", uuid)
+    .single();
+
+  if (error) {
+    if (error.code === "PGRST116") {
+      return undefined;
+    }
+
+    throw error;
   }
 
-  const row = res[0];
+  if (!data) {
+    return undefined;
+  }
+}
+
+export function formatUser(row: any): User {
   const user: User = {
     email: row.email,
     nickname: row.nickname,

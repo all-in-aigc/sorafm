@@ -18,6 +18,7 @@
     "@neondatabase/serverless": "^0.9.4",
     "@radix-ui/react-menubar": "^1.0.4",
     "@radix-ui/react-select": "^2.0.0",
+    "@supabase/supabase-js": "^2.45.1",
     "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

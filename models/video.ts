@@ -1,67 +1,82 @@
 import { Video } from "@/types/video";
-import { getNeonSql } from "./db";
+import { getSupabaseClient } from "./db";
 
 export async function insertVideo(video: Video) {
-  const sql = getNeonSql();
-  const res = await sql`INSERT INTO videos 
-        (user_uuid, video_description, video_url, cover_url, post_url, user_nickname, user_avatar_url, created_at, uuid, status) 
-        VALUES 
-        (
-          ${video.user_uuid}, 
-          ${video.video_description}, 
-          ${video.video_url}, 
-          ${video.cover_url}, 
-          ${video.post_url}, 
-          ${video.user_nickname}, 
-          ${video.user_avatar_url}, 
-          ${video.created_at}, 
-          ${video.uuid}, 
-          ${video.status}
-        )
-    `;
+  const cli = getSupabaseClient();
 
-  return res;
+  const { data, error } = await cli
+    .from("videos")
+    .insert({
+      user_uuid: video.user_uuid,
+      video_description: video.video_description,
+      video_url: video.video_url,
+      cover_url: video.cover_url,
+      post_url: video.post_url,
+      user_nickname: video.user_nickname,
+      user_avatar_url: video.user_avatar_url,
+      created_at: video.created_at,
+      uuid: video.uuid,
+      status: video.status,
+    })
+    .select();
+
+  if (error) {
+    throw error;
+  }
+
+  return data[0];
 }
 
 export async function getVideosCount(): Promise<number> {
-  const sql = getNeonSql();
-  const res = await sql`SELECT count(1) as count FROM videos`;
+  const cli = getSupabaseClient();
 
-  if (res.length === 0) {
-    return 0;
+  const { count, error } = await cli
+    .from("videos")
+    .select("*", { count: "exact", head: true });
+
+  if (error) {
+    throw error;
   }
 
-  const row = res[0];
-
-  return row.count;
+  return count ?? 0;
 }
 
 export async function getUserVideosCount(user_uuid: string): Promise<number> {
-  const sql = getNeonSql();
-  const res =
-    await sql`SELECT count(1) as count FROM videos WHERE user_uuid = ${user_uuid}`;
+  const cli = getSupabaseClient();
 
-  if (res.length === 0) {
-    return 0;
+  const { count, error } = await cli
+    .from("videos")
+    .select("*", { count: "exact", head: true })
+    .eq("user_uuid", user_uuid);
+
+  if (error) {
+    throw error;
   }
 
-  const row = res[0];
-
-  return row.count;
+  return count ?? 0;
 }
 
 export async function findVideoByUuid(
   uuid: string
 ): Promise<Video | undefined> {
-  const sql = getNeonSql();
-  const res =
-    await sql`select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.uuid = ${uuid} and w.status = 1`;
+  const cli = getSupabaseClient();
 
-  if (res.length === 0) {
-    return;
+  const { data, error } = await cli
+    .from("videos")
+    .select("*")
+    .eq("uuid", uuid)
+    .eq("status", 1)
+    .single();
+
+  if (error) {
+    throw error;
   }
 
-  const video = formatVideo(res[0]);
+  if (!data) {
+    return undefined;
+  }
+
+  const video = formatVideo(data);
 
   return video;
 }
@@ -70,29 +85,38 @@ export async function getRandomVideos(
   page: number,
   limit: number
 ): Promise<Video[]> {
+  if (page < 1) {
+    page = 1;
+  }
+  if (limit <= 0) {
+    limit = 50;
+  }
+  const offset = (page - 1) * limit;
+
   try {
-    if (page <= 0) {
-      page = 1;
-    }
-    if (limit <= 0) {
-      limit = 50;
-    }
-    const offset = (page - 1) * limit;
+    const cli = getSupabaseClient();
 
-    const sql = getNeonSql();
-    const res =
-      await sql`select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.status = 1 order by random() limit ${limit} offset ${offset}`;
+    const { data, error } = await cli
+      .from("videos")
+      .select("*")
+      .eq("status", 1)
+      // .order("random()")
+      .range(offset, offset + limit - 1);
 
-    if (res.length === 0) {
+    if (error) {
+      throw error;
+    }
+
+    if (!data || data.length === 0) {
       return [];
     }
 
-    const videos = getVideosFromSqlResult(res);
+    const videos = getVideosFromSqlResult(data);
 
     return videos;
   } catch (error) {
-    console.log("get random videos error", error);
-    return [];
+    console.error("Error fetching videos:", error);
+    throw error;
   }
 }
 
@@ -100,29 +124,38 @@ export async function getLatestVideos(
   page: number,
   limit: number
 ): Promise<Video[]> {
+  if (page < 1) {
+    page = 1;
+  }
+  if (limit <= 0) {
+    limit = 50;
+  }
+  const offset = (page - 1) * limit;
+
   try {
-    if (page < 1) {
-      page = 1;
-    }
-    if (limit <= 0) {
-      limit = 50;
-    }
-    const offset = (page - 1) * limit;
+    const cli = getSupabaseClient();
 
-    const sql = getNeonSql();
-    const res =
-      await sql`select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where w.status = 1 order by w.created_at desc limit ${limit} offset ${offset}`;
+    const { data, error } = await cli
+      .from("videos")
+      .select("*")
+      .eq("status", 1)
+      .order("created_at", { ascending: false })
+      .range(offset, offset + limit - 1);
 
-    if (res.length === 0) {
+    if (error) {
+      throw error;
+    }
+
+    if (!data || data.length === 0) {
       return [];
     }
 
-    const videos = getVideosFromSqlResult(res);
+    const videos = getVideosFromSqlResult(data);
 
     return videos;
   } catch (error) {
-    console.log("get latest videos error", error);
-    return [];
+    console.error("Error fetching videos:", error);
+    throw error;
   }
 }
 
@@ -138,21 +171,36 @@ export async function getRecommendedVideos(
   }
   const offset = (page - 1) * limit;
 
-  const sql = getNeonSql();
-  const res =
-    await sql`select w.*, u.uuid as user_uuid, u.email as user_email, u.nickname as user_name, u.avatar_url as user_avatar from videos as w left join users as u on w.user_uuid = u.uuid::VARCHAR where is_recommended = true and w.status = 1 order by w.created_at desc limit ${limit} offset ${offset}`;
+  try {
+    const cli = getSupabaseClient();
 
-  if (res.length === 0) {
-    return [];
+    const { data, error } = await cli
+      .from("videos")
+      .select("*")
+      .eq("is_recommended", true)
+      .eq("status", 1)
+      .order("created_at", { ascending: false })
+      .range(offset, offset + limit - 1);
+
+    if (error) {
+      throw error;
+    }
+
+    if (!data || data.length === 0) {
+      return [];
+    }
+
+    const videos = getVideosFromSqlResult(data);
+
+    return videos;
+  } catch (error) {
+    console.error("Error fetching videos:", error);
+    throw error;
   }
-
-  const videos = getVideosFromSqlResult(res);
-
-  return videos;
 }
 
-export function getVideosFromSqlResult(res: Record<string, any>[]): Video[] {
-  if (res.length === 0) {
+export function getVideosFromSqlResult(res: any[]): Video[] {
+  if (!res || res.length === 0) {
     return [];
   }
 
@@ -167,7 +215,7 @@ export function getVideosFromSqlResult(res: Record<string, any>[]): Video[] {
   return videos;
 }
 
-export function formatVideo(row: Record<string, any>): Video | undefined {
+export function formatVideo(row: any): Video | undefined {
   let video: Video = {
     user_uuid: row.user_uuid,
     video_description: row.video_description,
