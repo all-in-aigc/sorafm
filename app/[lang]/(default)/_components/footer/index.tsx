@@ -131,7 +131,7 @@ export default function ({ lang, dict }: { lang: string; dict: any }) {
                   <p className="font-inter ml-4 text-black">
                     <img
                       src={
-                        "https://zknown-1251007641.cos.ap-guangzhou.myqcloud.com/images/20240226193536.png"
+                        "https://zknown-1251007641.cos.ap-guangzhou.myqcloud.com/images/20240105113843.png"
                       }
                       alt="qrcode"
                       width={"250"}
