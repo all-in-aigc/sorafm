@@ -11,6 +11,8 @@ import { Video } from "@/types/video";
 import Videos from "../../_components/videos";
 import { getDictionary } from "@/services/i18n";
 
+export const runtime = "edge";
+
 export async function generateMetadata({
   params,
 }: {

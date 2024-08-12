@@ -5,6 +5,8 @@ import Videos from "./_components/videos";
 import { getDictionary } from "@/services/i18n";
 import { getLatestVideos } from "@/models/video";
 
+export const runtime = "edge";
+
 export async function generateMetadata({
   params,
 }: {

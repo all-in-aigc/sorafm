@@ -2,6 +2,8 @@ import { respData, respErr } from "@/lib/resp";
 
 import { getRandomVideos } from "@/models/video";
 
+export const runtime = "edge";
+
 export async function POST(req: Request) {
   try {
     const { description } = await req.json();

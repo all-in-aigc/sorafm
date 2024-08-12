@@ -1,16 +1,13 @@
-import { Pool } from "pg";
+import { neon } from "@neondatabase/serverless";
 
-let globalPool: Pool;
+export function getNeonSql() {
+  const connectionString = process.env.POSTGRES_URL
+    ? process.env.POSTGRES_URL + "?sslmode=require"
+    : "";
 
-export function getDb() {
-  if (!globalPool) {
-    const connectionString = process.env.POSTGRES_URL;
-    console.log("connectionString", connectionString);
+  console.log("db connectionString: ", connectionString);
 
-    globalPool = new Pool({
-      connectionString,
-    });
-  }
+  const sql = neon(connectionString);
 
-  return globalPool;
+  return sql;
 }
