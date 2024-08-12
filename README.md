@@ -8,15 +8,47 @@ Sora AI Video Generator
 
 ## Live Demo
 
-[https://sora.fm](https://sora.fm)
+[https://sorafm.pages.dev](https://sorafm.pages.dev)
 
 ![preview](./preview.png)
 
 ## Deploy with Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fall-in-aigc%2Fsorafm&env=POSTGRES_URL,WEB_BASE_URI&envDescription=POSTGRES_URL%20needed%20for%20the%20application&project-name=my-sora-project&repository-name=my-sora-project&redirect-url=https%3A%2F%2Fsora.fm&demo-title=Sora.FM&demo-description=Sora%20AI%20Video%20generator&demo-url=https%3A%2F%2Fsora.fm&demo-image=https%3A%2F%2Fgithub.com%2Fall-in-aigc%2Fsorafm%2Fraw%2Fmain%2Fpreview.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fall-in-aigc%2Fsorafm&env=POSTGRES_URL,WEB_BASE_URI&envDescription=POSTGRES_URL%20needed%20for%20the%20application&project-name=my-sora-project&repository-name=my-sora-project&redirect-url=https%3A%2F%2Fsorafm.pages.dev&demo-title=Sora.FM&demo-description=Sora%20AI%20Video%20generator&demo-url=https%3A%2F%2Fsorafm.pages.dev&demo-image=https%3A%2F%2Fgithub.com%2Fall-in-aigc%2Fsorafm%2Fraw%2Fmain%2Fpreview.png)
 
-## Quick Start
+## Deploy with docker
+
+- build image
+
+```shell
+sudo docker build -f deploy/Dockerfile -t sorafm:latest .
+```
+
+- run server
+
+```shell
+sudo docker run -itd -p 127.0.0.1:8080:8080 --restart=always sorafm:latest
+```
+
+- nginx conf
+
+```txt
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080/;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    error_log /var/log/nginx/sorafm.error;
+}
+```
+
+## Local development
 
 1. clone project
 
